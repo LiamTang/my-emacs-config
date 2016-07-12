@@ -1,57 +1,10 @@
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
 
-;; cl - Common Lisp Extension
-(require 'cl)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; Add Package
-(defvar my/packages '(
-		      ;; --- Auto-completion ---
-		      company
-		      ;; --- Hungry-delete ---
-		      hungry-delete
-		      ;; --- smex ---
-		      ;;smex
-		      ;; --- swiper ---
-		      swiper
-		      counsel
-		      smartparens
-		      ;; --- popwin---
-		      popwin
-		      ;; --- Themes ---
-		      monokai-theme
-		     ) "Default packages")
+(require 'init-packages)
 
-(setq package-selected-packages my/packages)
 
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
 
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg my/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
-(setq package-selected-packages my/packages)
-
-;; hungry-delete configure
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-;; configure for smex
-;;(require 'smex)
-;;(global-set-key (kbd "M-x") 'smex)
-
-;; configure for swiper
-(require 'swiper)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -69,16 +22,7 @@
 ;;(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 ;;(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
-;; configure for smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
 
-;; configure for popwin
-(require 'popwin)
-(popwin-mode 1)
-
-;; theme management
-(load-theme 'monokai t)
 
 ;; turn off tool-bar
 (tool-bar-mode -1)
@@ -100,8 +44,7 @@
 ;; bind the function open-init-file to <f2>
 (global-set-key (kbd "<f2>") 'open-init-file)
 
-;; open the global-company-mode
-(global-company-mode t)
+
 
 ;; change the cursor to bar
 ;; we need to use setq-default
