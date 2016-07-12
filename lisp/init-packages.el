@@ -43,16 +43,15 @@
 (global-company-mode t)
 
 ;; configure for swiper
-(require 'swiper)
+;;(require 'swiper)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 
 ;; hungry-delete configure
-(require 'hungry-delete)
+;;(require 'hungry-delete)
 (global-hungry-delete-mode)
 
 ;; configure for smartparens
-(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; configure for popwin

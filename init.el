@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'init-packages)
+(require 'init-ui)
 
 
 
@@ -24,17 +25,7 @@
 
 
 
-;; turn off tool-bar
-(tool-bar-mode -1)
 
-;; turn off scroll-bar
-(scroll-bar-mode -1)
-
-;; show line number
-(global-linum-mode t) 
-
-;; turn off the start screen
-(setq inhibit-splash-screen 1)
 
 ;; open the configure file fast
 (defun open-init-file()
@@ -46,11 +37,7 @@
 
 
 
-;; change the cursor to bar
-;; we need to use setq-default
-;; if the varables is buffer-local, setq is only set its
-;; local value; and setq-default will set its global value
-(setq-default cursor-type 'bar)
+
 
 ;; rencentf-mode open
 (require 'recentf)
@@ -71,8 +58,7 @@
 ;; highlight matching parentheses
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-;; highlight the current line
-(global-hl-line-mode t)
+
 
 ;; auto load files changed outside the emacs
 (global-auto-revert-mode t)
