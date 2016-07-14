@@ -28,6 +28,7 @@
 ;; bind the function open-init-file to <f2>
 (global-set-key (kbd "<f2>") 'open-init-file)
 
+;;
 
 
 (provide 'init-key-binding)

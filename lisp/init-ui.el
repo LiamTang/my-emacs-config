@@ -7,7 +7,8 @@
 (scroll-bar-mode -1)
 
 ;; show line number
-(global-linum-mode t) 
+;;(global-linum-mode t) 
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; turn off the start screen
 (setq inhibit-splash-screen 1)
