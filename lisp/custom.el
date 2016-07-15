@@ -11,6 +11,7 @@
  '(custom-safe-themes
    (quote
     ("c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
+ '(fill-column 80)
  '(popwin:popup-window-position (quote bottom))
  '(popwin:popup-window-width 30))
 (custom-set-faces

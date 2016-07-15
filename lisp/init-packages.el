@@ -36,11 +36,18 @@
 		      ;;
 		      yasnippet
 		      auto-yasnippet
+		      ;; evil
+		      evil
+		      evil-leader
+		      window-numbering
+		      ;;powerline
+		      evil-nerd-commenter
+		      evil-surround
 		      ;; search and replaces (need installed ag first)
-		      helm-ag
+		      helm-ag
 		      ;; --- Themes ---
 		      monokai-theme
-		     ) "Default packages")
+		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
 
@@ -105,5 +112,45 @@
 (yas-global-mode t)
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; visual-line-mode setting
+;; something to be set future: how to make it wrap at given column
+(global-visual-line-mode)
+
+;; evil setting
+(evil-mode t)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+;; evil-leader: a evil plugin 
+(global-evil-leader-mode)
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+  "f" 'find-file)
+
+;; evil-surround setting
+;; in the evil-visual-state, use S to add surround near the selected textobject
+;; use gS to concel the surround
+;; use cs to change
+;; for more details, reference the official documents.
+;; https://github.com/timcharper/evil-surround
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+;; evil-nerd-commenter setting
+;; evil-nerd-commenter can be used without evil
+;;
+
+
+;; window-numbering setting
+;; this packapge is used to convinence the switch between the window
+;; if not use this, we can switch window by these ways:
+;; in evil normal state: C-w h/j/k/l
+;; in evil emacs state or evil insert state: C-x o
+;; after active this mode, we can use M-windownumber to switch
+(window-numbering-mode 1)
+
+;; powerline setting
+;;(powerline-center-theme)
 
 (provide 'init-packages)
