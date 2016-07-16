@@ -47,6 +47,12 @@
 		      helm-ag
 		      ;; --- Themes ---
 		      monokai-theme
+		      ;; which key
+		      which-key
+		      ;; anaconda-mode
+		      anaconda-mode
+		      ;; company-anaconda
+		      company-anaconda
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -170,5 +176,18 @@
 
 ;; powerline setting
 ;;(powerline-center-theme)
+
+;; which-key setting
+(which-key-mode)
+
+;; anaconda-mode setting
+;; enable anaconda-mode
+(add-hook 'python-mode-hook 'anaconda-mode)
+;; enable anaconda-eldoc-mode, which provide document function.
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+;; add company-anaconda
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
+
 
 (provide 'init-packages)
