@@ -72,5 +72,6 @@
 
 ;; improve imenu
 (global-set-key (kbd "M-s i") 'counsel-imenu)
-
+;;
+(auto-image-file-mode t)
 (provide 'init-better-defaults)
